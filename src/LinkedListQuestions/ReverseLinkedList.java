@@ -30,7 +30,25 @@ public class ReverseLinkedList {
 
     private static Node answer(Node head) {
 
-        return null;
+
+        Node prevNode = null;
+        Node nextNode = head.next;
+        Node currentNode = head;
+        while (nextNode != null) {
+
+            nextNode = currentNode.next;
+            currentNode.next = prevNode;
+            prevNode = currentNode;
+
+            if(nextNode.next == null){
+                break;
+            }
+            currentNode = nextNode;
+
+        }
+
+        nextNode.next = prevNode;
+        return nextNode;
     }
 
 
